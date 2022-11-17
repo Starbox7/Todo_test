@@ -15,17 +15,17 @@ function WriteHeader() {
             <View style={styles.iconButtonWrapper}>
                 <TransparentCircleButton
                     onPress={onGoBack}
-                    name="arrow-back"
+                    name="취소"
                     color="#424242"
                 />
             </View>
             <View style={styles.buttons}>
-                <TransparentCircleButton
+                {/* <TransparentCircleButton
                     name="delete-forever"
                     color="#ef5350"
                     hasMarginRight
-                />
-                <TransparentCircleButton name="check" color="#009688" />
+                /> */}
+                <TransparentCircleButton name="저장" color="#009688" />
             </View>
         </View>
     );
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     iconButtonWrapper: {
         width: 32,
