@@ -1,11 +1,15 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Text } from 'react-native';
+import { View, StyleSheet, TextInput, Text, Switch } from 'react-native';
+// import  Icon  from "react-native-vector-icons/MaterialIcons";
 // import { Icon } from "react-native-vector-icons/Icon";
+import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from "react-native-vector-icons/Ionicons"
+// import Icon from "react-native-vector-icons"
 
 function WriteEditor({ title, body, onChangeTitle, onChangeBody }) {
     return (
-        <View style={{flex:1}}>
-            <View style={styles.block}>
+        <View style={{ flex: 1 }}>
+            <View style={styles.reminderMain}>
                 <TextInput
                     placeholder="리마인더 제목"
                     style={styles.titleInput}
@@ -14,7 +18,7 @@ function WriteEditor({ title, body, onChangeTitle, onChangeBody }) {
                     value={title}
                 />
                 <TextInput
-                    placeholder="리마인더 내용"
+                    placeholder="메모"
                     style={styles.bodyInput}
                     multiline   //multiline={true} 와 동일
                     textAlignVertical="top"
@@ -22,42 +26,124 @@ function WriteEditor({ title, body, onChangeTitle, onChangeBody }) {
                     value={body}
                 />
                 <Text>리마인더 체크형 할일목록 구현 자리</Text>
-                <Text>할일목록 활성화 버튼 자리(우측 끝)</Text>
+                <Icon name="check-square-o" />
             </View>
-            <View>
-                <Text>이곳은 리마인더 시간 설정이 들어갈 공간입니다.</Text>
+            <View style={styles.reminderDeadline}>
+                <Text style={{ marginLeft: 5, fontSize: 17, }}>마감 날짜</Text>
+                <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    // thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    thumbColor={"#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                // onValueChange={toggleSwitch}
+                // value={isEnabled}
+                />
             </View>
-            <View>
-                <Text>이곳은 리마인더 장소 설정이 들어갈 공간입니다.</Text>
+            <View style={styles.reminderTime}>
+                <Text style={{ marginLeft: 5, fontSize: 17, }}>진행 날짜</Text>
+                <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    // thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    thumbColor={"#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                // onValueChange={toggleSwitch}
+                // value={isEnabled}
+                />
             </View>
-            <View>
-                <Text>이곳은 리마인더 카테고리 설정이 들어갈 공간입니다.</Text>
+            <View style={styles.reminderLocation}>
+                <Text style={{ marginLeft: 5, fontSize: 17, }}>진행 장소</Text>
+                <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    // thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    thumbColor={"#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                // onValueChange={toggleSwitch}
+                // value={isEnabled}
+                />
             </View>
-            <View>
+            <View style={styles.reminderCategory}>
+                <View style={{flexDirection: "row"}}>
+                    <Icon name="circle" style={{ marginLeft: 20, marginTop: 5 }} color="#ddd" />
+                    <Text style={{ marginLeft: 25, fontSize: 17, }}>Tasks</Text>
+                </View>
+                <Switch
+                    trackColor={{ false: "#767577", true: "#81b0ff" }}
+                    // thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                    thumbColor={"#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                // onValueChange={toggleSwitch}
+                // value={isEnabled}
+                />
+            </View>
+            <View style={{ marginLeft: 20, flexDirection: "row" }}>
                 {/* <Icon></Icon> */}
-                <Text>알림을 받지 않습니다.</Text>
+                <Icon name="bell-slash-o" style={{ marginTop: 5 }} color="gray" />
+                <Text style={{ marginLeft: 10, color: "gray"}}>알림을 받지 않습니다.</Text>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    block: { 
+    reminderMain: {
         backgroundColor: "#ffffff",
-        borderBottomRightRadius: 15,
-        borderBottomLeftRadius: 15,
-        padding: 16,
+        borderBottomRadius: 21,
+        padding: 10,
         color: "white",
-     },
+        marginBottom: 20,
+    },
+    reminderDeadline: {
+        backgroundColor: "#ffffff",
+        borderRadius: 21,
+        padding: 10,
+        color: "white",
+        marginBottom: 20,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    reminderTime: {
+        backgroundColor: "#ffffff",
+        borderRadius: 21,
+        padding: 10,
+        color: "white",
+        marginBottom: 20,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    reminderLocation: {
+        backgroundColor: "#ffffff",
+        borderRadius: 21,
+        padding: 10,
+        color: "white",
+        marginBottom: 20,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    reminderCategory: {
+        backgroundColor: "#ffffff",
+        borderRadius: 21,
+        padding: 10,
+        color: "white",
+        marginBottom: 20,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
     titleInput: {
         paddingVertical: 0,
         fontSize: 18,
-        marginBottom: 16,
+        marginTop: 30,
+        marginLeft: 10,
+        marginBottom: 5,
         color: "#263238",
         fontWeight: "bold",
     },
     bodyInput: {
-        fontSize: 16,
+        marginLeft:10,
+        fontSize: 15,
         paddingVertical: 0,
         color: "#263238",
     },

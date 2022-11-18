@@ -8,9 +8,11 @@ import { StatusBar } from "expo-status-bar";
 function WriteScreen(){
     return (
     <SafeAreaView style={styles.block}>
+        <View style={{flex: 1,backgroundColor: "#F4F3EF"}}>
         {/* <statusbar style={{backgroundColor: "#ffffff"}}/> */}
         <WriteEditor/>
         <WriteHeader/>
+        </View>
     </SafeAreaView>
     );
 }
@@ -18,7 +20,7 @@ function WriteScreen(){
 const styles = StyleSheet.create({
     block: {
         flex: 1,
-        backgroundColor: '#F4F3EF',  //F4F3EF
+        backgroundColor: 'white',  //F4F3EF
     },
 });
 

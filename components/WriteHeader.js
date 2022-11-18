@@ -25,7 +25,7 @@ function WriteHeader() {
                     color="#ef5350"
                     hasMarginRight
                 /> */}
-                <TransparentCircleButton name="저장" color="#009688" />
+                <TransparentCircleButton name="저장" color="#afafaf" />
             </View>
         </View>
     );
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
+        marginBottom: 10,
     },
     iconButtonWrapper: {
         width: 32,
